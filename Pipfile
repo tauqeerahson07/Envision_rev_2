@@ -1,0 +1,28 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django = "*"
+djangorestframework = "*"
+djoser = "*"
+djangorestframework-simplejwt = "*"
+supabase = "*"
+dj-database-url = "*"
+psycopg2-binary = "*"
+python-dotenv = "*"
+django-cors-headers = "*"
+python-decouple = "*"
+django-storages = "*"
+langgraph = "*"
+pillow = "*"
+whitenoise = "*"
+replicate = "*"
+moviepy = "*"
+imageio = {extras = ["ffmpeg"], version = "*"}
+
+[dev-packages]
+
+[requires]
+python_version = "3.12"

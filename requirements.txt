@@ -1,0 +1,6 @@
+# requirements.txt - Add these if not already present
+requests>=2.31.0
+Pillow>=10.0.0
+python-dotenv>=1.0.0
+langgraph>=0.0.40
+moviepy 
