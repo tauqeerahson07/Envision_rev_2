@@ -1,6 +1,25 @@
-# requirements.txt - Add these if not already present
-requests>=2.31.0
-Pillow>=10.0.0
+# Core dependencies
+Django
+djangorestframework
+djoser
+djangorestframework-simplejwt
+django-cors-headers
+django-storages
+dj-database-url
+python-decouple
 python-dotenv>=1.0.0
+whitenoise
+
+# AI / Media / Utility
+Pillow>=10.0.0
+moviepy
+imageio[ffmpeg]
+replicate
 langgraph>=0.0.40
-moviepy 
+supabase
+requests>=2.31.0
+psycopg2-binary
+
+# Notes:
+# - Using latest safe versions for Python 3.12
+# - Added ffmpeg support for imageio
