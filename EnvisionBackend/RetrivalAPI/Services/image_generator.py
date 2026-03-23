@@ -304,8 +304,7 @@ class FluxImageGenerator:
         )
 
         print(f"📸 Base image prompt (truncated): {group_prompt[:160]}...")
-        # image_url = self._generate_single_image(group_prompt, seed=1000
-        image_url = self._generate_single_image(group_prompt)
+        image_url = self._generate(group_prompt, seed=1000, aspect_ratio="16:9")
         if image_url:
             print("✅ Base group portrait generated successfully")
             base64_image = self._download_and_encode_image(image_url)
@@ -373,7 +372,7 @@ class FluxImageGenerator:
         )
 
         print(f"📸 Commercial base prompt (truncated): {prompt[:160]}...")
-        image_url = self._generate_single_image(prompt, seed=1100)
+        image_url = self._generate(prompt=prompt, reference_image=None, seed=1234, aspect_ratio="16:9")
 
         if image_url:
             print("✅ Commercial reference image generated")
@@ -591,7 +590,7 @@ class FluxImageGenerator:
             print(f"📸 Generating product image [{i}/{len(prompts)}]...")
             seed = 4000 + i * 13
             ref = reference_image if "characters from reference" in p else None
-            image_url = self._generate_single_image(p, reference_image=ref, seed=seed)
+            image_url = self._generate(p, reference_image=ref, seed=seed)
             if image_url:
                 product_images.append(image_url)
                 print(f"✅ Product image {i} generated: {image_url}")
@@ -676,7 +675,7 @@ class FluxImageGenerator:
             # === Narrative start frame ===
             prompt = self._build_scene_prompt(scene, characters, product_info=product_info, frame_type="start")
             seed = 2000 + (scene_number * 7)
-            url = self._generate_single_image(prompt, reference_image=current_reference_image, seed=seed)
+            url = self._generate(prompt, reference_image=current_reference_image, seed=seed)
             images = []
             if url:
                 print("✅ Start frame generated")
@@ -708,7 +707,7 @@ class FluxImageGenerator:
                 f"{self.base_style}"
             )
             prod_seed = 4000 + scene_number
-            product_url = self._generate_single_image(product_prompt, reference_image=self.base_character_image, seed=prod_seed)
+            product_url = self._generate(product_prompt, reference_image=self.base_character_image, seed=prod_seed)
             if product_url:
                 print("✅ Product advert frame generated")
                 # I want base64 encoded product image
@@ -749,7 +748,7 @@ class FluxImageGenerator:
             print(f"📢 Generating commercial frame {i}/{len(prompts)}...")
             seed = 5000 + i * 11
             ref = reference_image if "characters from reference" in p else None
-            url = self._generate_single_image(p, reference_image=ref, seed=seed, aspect_ratio="16:9")
+            url = self._generate(p, reference_image=ref, seed=seed, aspect_ratio="16:9")
             if url:
                 frames.append(url)
                 print(f"✅ Commercial frame {i} generated: {url}")
