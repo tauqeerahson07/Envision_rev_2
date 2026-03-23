@@ -12,6 +12,7 @@ whitenoise
 gunicorn==20.1.0
 setuptools>=67.0.0
 wheel
+pkg_resources
 # AI / Media / Utility
 Pillow>=10.0.0
 moviepy
