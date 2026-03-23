@@ -9,6 +9,7 @@ dj-database-url
 python-decouple
 python-dotenv>=1.0.0
 whitenoise
+gunicorn==20.1.0
 
 # AI / Media / Utility
 Pillow>=10.0.0
