@@ -1,11 +1,16 @@
-#!/bin/bash
+#!/usr/bin/env bash
+set -o errexit  # exit on error
 
-# Install dependencies
+echo "📦 Installing dependencies..."
 pip install -r requirements.txt
 
-cd EnvisionBackend
-# Apply migrations
-python manage.py migrate --no-input
+echo "🧩 Making migrations..."
+python EnvisionBackend/manage.py makemigrations --noinput
 
-# Collect static files
-python manage.py collectstatic --no-input
+echo "🗄️ Applying migrations..."
+python EnvisionBackend/manage.py migrate --noinput
+
+echo "📁 Collecting static files..."
+python EnvisionBackend/manage.py collectstatic --no-input
+
+echo "✅ Build completed successfully!"
