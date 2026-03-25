@@ -1,4 +1,6 @@
 # Core dependencies
+gunicorn>=20.1.0
+setuptools>=65.0.0
 Django
 djangorestframework
 djoser
@@ -9,9 +11,6 @@ dj-database-url
 python-decouple
 python-dotenv>=1.0.0
 whitenoise
-gunicorn==20.1.0
-setuptools>=67.0.0
-wheel
 # AI / Media / Utility
 Pillow>=10.0.0
 moviepy
