@@ -31,9 +31,9 @@ ENV_FILE = ROOT_DIR / '.env'
 SECRET_KEY = os.getenv('SECRETKEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['envision-nf6f.onrender.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
