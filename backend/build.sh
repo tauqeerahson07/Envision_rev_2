@@ -6,6 +6,7 @@ set -o errexit
 pip install --upgrade pip
 pip install -r requirements.txt
 
+cd EnvisionBackend
 # Collect static files
 python manage.py collectstatic --no-input
 
