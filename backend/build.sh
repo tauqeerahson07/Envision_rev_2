@@ -7,9 +7,10 @@ pip install --upgrade pip
 pip install -r requirements.txt
 
 cd EnvisionBackend
-# Collect static files
-python manage.py collectstatic --no-input
 
-# Run migrations
+# Run migrations first
 python manage.py makemigrations
 python manage.py migrate
+
+# Then collect static files
+python manage.py collectstatic --no-input
